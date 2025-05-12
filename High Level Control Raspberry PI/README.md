@@ -20,3 +20,6 @@ communicates bidirectionally with the central GUI, publishing robot state (e.g.,
 
 ## main.py
 acts as the system integrator, subscribing to all relevant topics and sending motion and behavior commands to the low-level robot controller.
+
+## launch.sh
+launch all relevant nodes along with roscore
