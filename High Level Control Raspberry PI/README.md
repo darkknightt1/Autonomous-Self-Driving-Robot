@@ -6,16 +6,16 @@ This package implements the high-level control architecture for TUTOBOT, an auto
 ## ultrasonic.py
 reads ultrasonic sensor data and publishes distance values for obstacle detection and local navigation safety.
 
-## aruco_reader.py
+## aruco.py
 detects ArUco markers via camera input and publishes the corresponding index to localize the robot within the museum.
 
-## speaker.py
+## speakers.py
 subscribes to the ArUco index and plays the matching pre-recorded audio file (e.g., exhibit information in Arabic) via onboard speakers.
 
 ## videostream.py
 captures camera frames and streams them to the server over UDP, supporting both remote operator monitoring and online museum tours.
 
-## gui.py
+## GUI_Communication.py
 communicates bidirectionally with the central GUI, publishing robot state (e.g., location, sensor status) and receiving control commands from the operator.
 
 ## main.py
