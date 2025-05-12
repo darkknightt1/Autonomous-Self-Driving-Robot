@@ -6,11 +6,11 @@ Operator GUI (Qt6 / PySide6):
 
 Real-time control of robot behavior.
 
-Embedded MJPEG video monitoring.
+Embedded MJPEG video streaming.
 
 Socket-based command/feedback interface.
 
-UI elements for behavior configuration and state tracking.
+UI elements for robot configuration and state tracking.
 
 ## Web Server (Flask):
 
@@ -30,8 +30,11 @@ Reconstructs frames for GUI and web output.
 
 TCP Socket: Bidirectional robot-GUI communication.
 
-UDP Stream: Camera feed transmission.
-
-Flask + OpenCV: MJPEG server for public view.
-
 Multithreaded Execution: Ensures GUI responsiveness and concurrent streaming.
+
+## Execution 
+Start the main operator GUI
+python QT_Socket.py
+
+(Optional) Launch the public web server if needed
+python Flask Webserver.py
