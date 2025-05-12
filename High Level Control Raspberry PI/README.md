@@ -3,41 +3,20 @@ This package implements the high-level control architecture for TUTOBOT, an auto
 
 
 ## The system consists of six ROS Python nodes:
+## ultrasonic.py
+reads ultrasonic sensor data and publishes distance values for obstacle detection and local navigation safety.
 
-## 1. ultrasonic.py
-### Function: Reads data from ultrasonic sensors.
+## aruco_reader.py
+detects ArUco markers via camera input and publishes the corresponding index to localize the robot within the museum.
 
-### Publishes: Distance measurements to the robot's safety or obstacle-avoidance modules.
+## speaker.py
+subscribes to the ArUco index and plays the matching pre-recorded audio file (e.g., exhibit information in Arabic) via onboard speakers.
 
-## 2. aruco_reader.py
-### Function: Detects and identifies ArUco markers via onboard camera.
+## videostream.py
+captures camera frames and streams them to the server over UDP, supporting both remote operator monitoring and online museum tours.
 
-### Publishes: Marker index corresponding to museum exhibit location.
+## gui.py
+communicates bidirectionally with the central GUI, publishing robot state (e.g., location, sensor status) and receiving control commands from the operator.
 
-3. speaker.py
-Function: Plays audio commentary (e.g., exhibit information).
-
-Subscribes to: ArUco marker index.
-
-Executes: Corresponding pre-recorded audio file (e.g., Arabic audio for "Nefertari").
-
-4. videostream.py
-Function: Streams live video from the robot’s camera.
-
-Protocol: UDP stream to the Flask web server.
-
-Use: Enables remote users and operators to view the robot's perspective.
-
-5. gui.py
-Function: Acts as a communication interface between robot and control GUI at the server.
-
-Publishes: Full robot state (sensor data, position, marker index).
-
-Subscribes to: Operator control commands (e.g., behavior override, manual control).
-
-6. main.py
-Function: Central logic controller of the robot.
-
-Subscribes to: Sensor nodes, ArUco data, GUI input.
-
-Publishes to: Low-level embedded controllers to drive robot behavior.
+## main.py
+acts as the system integrator, subscribing to all relevant topics and sending motion and behavior commands to the low-level robot controller.
