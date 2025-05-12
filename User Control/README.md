@@ -34,7 +34,7 @@ Multithreaded Execution: Ensures GUI responsiveness and concurrent streaming.
 
 ## Execution 
 Start the main operator GUI
-python QT_Socket.py
+ QT_Socket.py
 
 (Optional) Launch the public web server if needed
-python Flask Webserver.py
+ Flask_Webserver.py
